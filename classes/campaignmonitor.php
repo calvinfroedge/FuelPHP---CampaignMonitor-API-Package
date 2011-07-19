@@ -68,19 +68,7 @@ class CampaignMonitor
 			{	
 				if(isset($v['qs_params']))
 				{
-					$added = 0;
-					foreach($v['qs_params'] as $p=>$pv)
-					{
-						if($added == 0)
-						{
-							$query_string = '?';
-						}
-						$query_string .= "$p".'='."$pv".'&';
-						++$added;
-					}
-					
-					//Remove the trailing &
-					self::$_query_string = substr($query_string, 0, -1);					
+					self::$_query_string = http_build_query($v['qs_params']);					
 				}
 				else
 				{
