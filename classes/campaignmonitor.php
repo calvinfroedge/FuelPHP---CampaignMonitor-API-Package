@@ -220,13 +220,12 @@ class CampaignMonitor
 		if(is_array($response))
 		{
 			$response_data = explode('{', str_replace('}', '', str_replace('"', '', $response[1])));
+			unset($response_data[0]);
 		}
 		else
 		{
 			$response_data = explode('{', str_replace('}', '', str_replace('"', '', $response)));
 		}
-		
-		unset($response_data[0]);
 		
 		foreach($response_data as $k=>$v)
 		{
