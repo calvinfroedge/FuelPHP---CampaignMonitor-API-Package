@@ -68,7 +68,7 @@ class CampaignMonitor
 			{	
 				if(isset($v['qs_params']))
 				{
-					self::$_query_string = http_build_query($v['qs_params']);					
+					self::$_query_string = '?'.http_build_query($v['qs_params']);					
 				}
 				else
 				{
@@ -220,7 +220,7 @@ class CampaignMonitor
 		if(is_array($response))
 		{
 			$response_data = explode('{', str_replace('}', '', str_replace('"', '', $response[1])));
-			unset($response_data[0]);
+			unset($response_data[0]);			
 		}
 		else
 		{
